@@ -1,0 +1,134 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  background-image: linear-gradient(45deg, #3A1C71, #D76D77, #FFAF7B);
+  background-attachment: fixed;
+
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.cover {
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-link {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.cover-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.25em;
+  height: 5px;
+  width: 40px;
+  background: linear-gradient(45deg, #FFAF7B, #D76D77);
+  transition: width 0.3s ease;
+}
+
+.cover-link:hover::before {
+  width: 80px;
+  transition: width 0.3s ease;
+}
+
+
+/*
+  landing page circle
+*/
+
+.circle {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background: none;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  background-image: linear-gradient(45deg, #fa709a 0%, #fee140 100%);
+}
+
+.wave {
+  opacity: .4;
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  background: #e64980;
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -300px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 8s infinite linear;
+}
+
+.wave-1 {
+  animation: drift 10s infinite linear;
+}
+
+.wave-2 {
+  animation: drift 12s infinite linear;
+  opacity: .1;
+  background: yellow;
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+}
+
+/*
+  landing page
+*/
+
+.title {
+  margin: 50px 0 0 45px;
+}
+
+
+
+/*
+  media queries
+*/
+
+@media only screen and (max-width: 768px) {
+  .circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .wave {
+    width: 300px;
+    height: 300px;
+    margin-left: -150px;
+    margin-top: -150px;
+  }
+
+  .title {
+    margin-left: 0;
+  }
+}
