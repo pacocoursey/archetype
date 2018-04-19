@@ -2,6 +2,10 @@
   reset
 */
 
+html {
+  height: 100%;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -18,8 +22,6 @@ a {
 */
 
 body {
-  min-height: 100vh;
-  min-width: 100vw;
 
   background-image: linear-gradient(45deg, #ffecd2 0%, #fcb69f 100%);
   background-attachment: fixed;
@@ -31,10 +33,10 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
 
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas: "header"
-                       "main"
-                       "footer";
+                       "main";
 }
 
 
@@ -68,6 +70,47 @@ header {
   padding: 10px;
 }
 
+.circle-logo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: none;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  background-image: linear-gradient(45deg, #fa709a 0%, #fee140 100%);
+}
+
+.wave {
+  opacity: .4;
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  background: #e64980;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -70px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 8s infinite linear;
+}
+
+.wave-1 {
+  animation: drift 10s infinite linear;
+}
+
+.wave-2 {
+  animation: drift 12s infinite linear;
+  opacity: .1;
+  background: yellow;
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+}
+
 
 /*
   main
@@ -79,23 +122,69 @@ main {
 
 .content {
   max-width: 500px;
+  width: 100%;
   margin: 30px auto;
-  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
 }
 
 .post {
-  width: 100%;
   background-color: #fcb69f;
+  padding: 20px;
+  margin-top: 10px;
+  display: relative;
+  border-radius: 6px;
 }
 
-.post-info, .post-text {
-  border-bottom: 1px solid #000;
+.post-info, .post-text, .post-content {
+  position: relative;
+}
+
+.post-info::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to bottom, #FFAF7B, #D76D77);
 }
 
 .user-image {
+  border-radius: 50%;
   width: 50px;
   height: 50px;
 }
+
+.user-name {
+  position: absolute;
+  top: -10px;
+  left: 70px;
+}
+
+.user-username {
+  position: absolute;
+  top: 10px;
+  left: 70px;
+}
+
+.post-text, .post-content {
+  padding: 15px 0 1px 0;
+}
+
+.post-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to bottom, #FFAF7B, #D76D77);
+}
+
+
 
 
 
@@ -106,7 +195,7 @@ main {
 footer {
   grid-area: footer;
 
-  padding: 10px;
+  /* padding: 10px; */
 
   display: flex;
   flex-direction: row;
@@ -117,5 +206,5 @@ footer {
 }
 
 .footer-link {
-  padding: 0 20px 0 20px;
+  /* padding: 0 20px 0 20px; */
 }
