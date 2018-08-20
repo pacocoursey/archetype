@@ -1,0 +1,21 @@
+{
+  "name": "App",
+  "version": "0.0.1",
+  "description": "App description",
+  "main": "./main.js",
+  "scripts": {
+    "start": "electron .",
+    "lint": "eslint --ignore-path .gitignore .",
+    "fix": "eslint --ignore-path .gitignore --fix ."
+  },
+  "author": "Paco Coursey <paco@pacocoursey.com> (pacocoursey.com)",
+  "repository": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
